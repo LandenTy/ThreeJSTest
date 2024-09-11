@@ -59,7 +59,7 @@
         loader.load('./scene.gltf', (gltf) => {
             const model = gltf.scene;
             model.scale.set(4, 4, 4); // Increase the model size to 4 units
-            model.position.set(0, 0, 0); // Position the model appropriately
+            model.position.set(0, -1, -10); // Move the model closer to the camera
             scene.add(model);
         }, undefined, (error) => {
             console.error('An error happened while loading the model:', error);
@@ -114,12 +114,14 @@
             }
 
             // Handle movement
-            const speed = 0.2; // Increased speed
+            const speed = 0.5; // Increased speed for faster movement
             if (controls.enabled) {
                 if (keys['KeyW']) controls.moveForward(speed);
                 if (keys['KeyS']) controls.moveForward(-speed);
                 if (keys['KeyA']) controls.moveRight(-speed);
                 if (keys['KeyD']) controls.moveRight(speed);
+                if (keys['Space']) velocity.y = speed; // Move up
+                if (keys['ShiftLeft']) velocity.y = -speed; // Move down
             }
 
             // Update camera position with velocity
