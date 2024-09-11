@@ -56,7 +56,7 @@
 
         // Load 3D model
         const loader = new GLTFLoader();
-        loader.load('path/to/museum.gltf', (gltf) => {
+        loader.load('./scene.gltf', (gltf) => {
             const model = gltf.scene;
             model.scale.set(4, 4, 4); // Increase the model size to 4 units
             model.position.set(0, 0, 0); // Position the model appropriately
