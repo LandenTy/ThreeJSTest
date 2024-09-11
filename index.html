@@ -46,9 +46,9 @@
         scene.add(groundPlane);
 
         // Add a directional light
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(5, 10, 7.5).normalize();
-        scene.add(light);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 10, 5);
+        scene.add(directionalLight);
 
         // Add an ambient light
         const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
@@ -138,6 +138,7 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
         });
+
     </script>
 </body>
 </html>
