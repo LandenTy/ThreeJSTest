@@ -45,11 +45,21 @@
         groundPlane.position.y = -1;  // Position the ground plane slightly below the camera
         scene.add(groundPlane);
 
+        // Add a directional light
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(5, 10, 7.5).normalize();
+        scene.add(light);
+
+        // Add an ambient light
+        const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
+        scene.add(ambientLight);
+
         // Load 3D model
         const loader = new GLTFLoader();
         loader.load('./scene.gltf', (gltf) => {
             const model = gltf.scene;
-            model.scale.set(0.5, 0.5, 0.5); // Adjust the scale if necessary
+            model.scale.set(2, 2, 2); // Adjust the scale to make it larger
+            model.position.set(0, 0, 0); // Position the model appropriately
             scene.add(model);
         }, undefined, (error) => {
             console.error('An error happened while loading the model:', error);
