@@ -58,7 +58,7 @@
         const loader = new GLTFLoader();
         loader.load('./scene.gltf', (gltf) => {
             const model = gltf.scene;
-            model.scale.set(10,10,10); // Adjust the scale to make it larger
+            model.scale.set(3,3,3); // Adjust the scale to make it larger
             model.position.set(0, 0, 0); // Position the model appropriately
             scene.add(model);
         }, undefined, (error) => {
