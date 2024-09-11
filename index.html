@@ -56,9 +56,9 @@
 
         // Load 3D model
         const loader = new GLTFLoader();
-        loader.load('./scene.gltf', (gltf) => {
+        loader.load('path/to/museum.gltf', (gltf) => {
             const model = gltf.scene;
-            model.scale.set(3,3,3); // Adjust the scale to make it larger
+            model.scale.set(4, 4, 4); // Increase the model size to 4 units
             model.position.set(0, 0, 0); // Position the model appropriately
             scene.add(model);
         }, undefined, (error) => {
@@ -114,7 +114,7 @@
             }
 
             // Handle movement
-            const speed = 0.1;
+            const speed = 0.2; // Increased speed
             if (controls.enabled) {
                 if (keys['KeyW']) controls.moveForward(speed);
                 if (keys['KeyS']) controls.moveForward(-speed);
